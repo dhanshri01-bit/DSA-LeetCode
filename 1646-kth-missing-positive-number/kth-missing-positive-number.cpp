@@ -4,25 +4,22 @@ public:
 
         int i, low, high, mid, missing,n;
         n=arr.size();
-        low = 1;
-        high = arr[ n - 1] + k;
+       
+
+        low = 0;
+        high = n -1;
 
         while(low <= high)
         {
-            mid = (low + high) / 2;
-            missing = 0;
+            mid = (low + high)/2;
+            missing = arr[mid] - ( mid + 1);
 
-            for(i = 0; i < n; i++)
+            if(missing == k)
             {
-                if(arr[i] <= mid)
-                {
-                    missing++;
-                }
+                high = mid - 1;
             }
 
-            missing = mid - missing;
-
-            if(missing < k)
+            else if(missing < k)
             {
                 low = mid + 1;
             }
@@ -32,6 +29,8 @@ public:
             }
         }
         
-        return low;
+
+        return low + k;
     }
 };
+        
