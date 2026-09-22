@@ -9,7 +9,7 @@ public:
         ans = INT_MAX;
         for(i = 0; i < n; i++)
         {
-            low = 0;
+            low = i;
             high = n - 1;
                  
             while(low <= high)
