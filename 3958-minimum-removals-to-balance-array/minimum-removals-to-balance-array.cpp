@@ -11,8 +11,7 @@ public:
         {
             low = 0;
             high = n - 1;
-           
-           
+                 
             while(low <= high)
             {
                  mid = (low + high) / 2;
@@ -34,9 +33,6 @@ public:
                 ans = remove;
             }
         }
-
-        cout<<n<<endl;
-
 
         return ans;
     }
