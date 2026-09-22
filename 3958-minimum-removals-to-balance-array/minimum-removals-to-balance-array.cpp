@@ -11,9 +11,8 @@ public:
         {
             low = 0;
             high = n - 1;
-            j = i;
            
-
+           
             while(low <= high)
             {
                  mid = (low + high) / 2;
