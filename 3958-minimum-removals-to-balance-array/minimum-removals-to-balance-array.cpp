@@ -17,20 +17,14 @@ public:
                  mid = (low + high) / 2;
                 if(nums[mid] <= (long long)nums[i] * k)
                 {
-                    j = mid;
+                    if(ans > n - ( mid- i + 1))
+                    ans = n - ( mid - i + 1);
                     low = mid + 1;
                 }
                 else
                 {
                     high = mid - 1;
                 }
-            }
-
-            remove = n - ( j - i + 1);
-
-            if(ans > remove)
-            {
-                ans = remove;
             }
         }
 
