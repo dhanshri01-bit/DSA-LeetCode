@@ -7,19 +7,21 @@ public:
         low = 0;
         high = n - 1;
         min = INT_MAX;
-        for(i = 0; i < n; i++)
+        while(low < high)
         {
-            if(min > nums[i])
+            mid = (low + high)/2;
+            if(nums[mid] >= nums[high] )
             {
-                min = nums[i];
+                low = mid + 1;              
             }
+            else
+            {
+                high = mid;
+            }
+            
         }
 
-        return min;
-       
-
-        
-        
+        return nums[low];  
 
     }
 };
