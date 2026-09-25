@@ -10,8 +10,8 @@ public:
             total = total + batteries[i];
         }
         max_time = total /n;
-       low = 1;
-       high = max_time;
+        low = 1;
+        high = max_time;
         ans = 0;
         while(low <= high)
         {
@@ -19,14 +19,15 @@ public:
             sum = 0;
             for(i = 0; i < s; i++)
             {
-             if(batteries[i] < mid)
-             {
-                sum = sum + batteries[i];
-             }
-             else
-             {
-                sum = sum + mid;
-             }
+            //  if(batteries[i] < mid)
+            //  {
+            //     sum = sum + batteries[i];
+            //  }
+            //  else
+            //  {
+            //     sum = sum + mid;
+            //  }
+                sum += min((long long)batteries[i], mid);
             }
 
             if(sum >= mid*n)
