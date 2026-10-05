@@ -25,13 +25,11 @@ public:
             if(s[j] == 'a' || s[j] == 'e' || s[j] == 'i' || s[j] == 'o' || s[j] == 'u')
             {
                 vowel_c++;
-                // j++;
             }
              
             if(s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u')
             {
                 vowel_c--;
-                // i++;
             }
              
              if(vowel_c > max_vowels)
