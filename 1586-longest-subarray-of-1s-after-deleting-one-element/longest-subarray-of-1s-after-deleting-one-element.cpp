@@ -16,16 +16,14 @@ public:
             {
                 count_zeros++;
             }
-            if(count_zeros == 2)
+            while(count_zeros == 2)
             {
-                while(count_zeros != 1)
-                {
-                    if(nums[i] == 0)
+                if(nums[i] == 0)
                     {
                         count_zeros --;
                     }
                     i++;
-                }
+                
             }
             if( (j - i) > long_sub)
             {
