@@ -15,7 +15,7 @@ public:
            {
               count++;
            }
-           if(count > k)
+           while(count > k)
            {
               if(answerKey[i] == 'F')
               {
@@ -30,8 +30,7 @@ public:
            }
            j++;
         }
-
-        
+     
         i = 0;
         j = 0;
         count = 0;
@@ -42,7 +41,7 @@ public:
            {
               count++;
            }
-           if(count > k)
+           while(count > k)
            {
               if(answerKey[i] == 'T')
               {
