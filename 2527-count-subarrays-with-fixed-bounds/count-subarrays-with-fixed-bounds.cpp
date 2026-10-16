@@ -25,11 +25,11 @@ public:
                 greater_i = i;
             }
             
-            x = min(greater_i, smaller_i);
+            x = min(greater_i, smaller_i) - RAI;
 
-            if (x > RAI)
+            if (x > 0)
             {
-                ans = ans + (x - RAI);
+                ans = ans + x;
             }
 
 
