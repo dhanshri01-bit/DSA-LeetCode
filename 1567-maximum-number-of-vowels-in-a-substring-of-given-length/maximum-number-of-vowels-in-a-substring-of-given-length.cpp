@@ -8,19 +8,7 @@ public:
         len = s.size();
         i = 0;
         j = 0;
-        // while(j < k)
-        // {
-        //     if(s[j] == 'a' || s[j] == 'e' || s[j] == 'i' || s[j] == 'o' || s[j] == 'u')
-        //     {
-        //         vowel_c++;
-        //     }
-        //     j++;
-        // }
-
-        // if(vowel_c > max_vowels)
-        // {
-        //     max_vowels = vowel_c;
-        // }
+        
 
         while(j < len)
         {
