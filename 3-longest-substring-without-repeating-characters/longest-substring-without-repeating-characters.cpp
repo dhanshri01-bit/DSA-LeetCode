@@ -2,9 +2,10 @@ class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
 
-        int max_len,count,i,j,n,flag;
+        int max_len,len,i,j,n,flag;
+        vector<int> aux(128,0);
         n = s.size();
-        max_len = 1;
+        max_len = 0;
         if(n == 1)
         {
             return 1;
@@ -13,27 +14,29 @@ public:
         {
             return 0;
         }
-        
-        for(i = 0; i < n; i++)
-        {
-            vector<int> aux(128,0);
-            count = 0;
-            flag = 1;
 
-            for(j = i; j < n && flag == 1; j++)
+        i = 0;
+        j = 0;
+        
+        while(j < n)
+        {
+            aux[s[j]]++;
+
+            while(aux[s[j]] > 1)
             {
-                if(aux[s[j]] == 1)
-                {
-                    flag = 0;
-                }
-                else
-                {
-                    aux[s[j]] = 1;
-                    count++;
-                    max_len = max(max_len, count);
-                }
+                aux[s[i]]--;
+                i++;
             }
+
+            len = j - i + 1;
+            if(max_len < len)
+            {
+                max_len = len;
+            }
+            j++;
         }
+        
+        
         return max_len;
         
     }
