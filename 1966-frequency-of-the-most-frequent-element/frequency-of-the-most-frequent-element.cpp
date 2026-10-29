@@ -3,7 +3,8 @@ public:
     int maxFrequency(vector<int>& nums, int k) {
 
         sort(nums.begin(),nums.end());
-        long long i, j, c_w_sum, m_w_sum, len, ans, n;
+        int i, j, len, ans, n;
+        long int c_w_sum, m_w_sum;
         n = nums.size();
         c_w_sum = 0;
         ans = 0;
@@ -13,8 +14,8 @@ public:
         
         while(j < n)
         {
-            c_w_sum = c_w_sum + nums[j];
-            m_w_sum = nums[j] * ( j - i + 1);
+            c_w_sum = (long)c_w_sum + nums[j];
+            m_w_sum = (long) nums[j] * ( j - i + 1);
 
             if(abs(c_w_sum - m_w_sum) > k)
             {
