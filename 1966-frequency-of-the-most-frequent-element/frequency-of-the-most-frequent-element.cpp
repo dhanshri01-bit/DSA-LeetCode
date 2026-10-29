@@ -3,53 +3,37 @@ public:
     int maxFrequency(vector<int>& nums, int k) {
 
         sort(nums.begin(),nums.end());
+        long long i, j, c_w_sum, m_w_sum, len, ans, n;
+        n = nums.size();
+        c_w_sum = 0;
+        ans = 0;
 
-        long long int i,j,n,count,max_freq,diff,sum,freq,low,high,mid,window_sum;
-        n=nums.size();
-        max_freq=0;
+        i = 0;
+        j = 0;
+        
+        while(j < n)
+        {
+            c_w_sum = c_w_sum + nums[j];
+            m_w_sum = nums[j] * ( j - i + 1);
 
-        sum = 0;             
-        vector<long long>prefix;
-        for(i = 0; i < n; i++)
-        {
-            sum = sum + nums[i];
-            prefix.push_back(sum);
-        }
-        sum = 0;
-        for(i = n - 1; i >= 0; i--)
-        {
-            low = 0;
-            high = i;
-                      
-            while(low <= high)
+            if(abs(c_w_sum - m_w_sum) > k)
             {
-                mid = (low + high)/2;
-                window_sum = prefix[i];
-                if (i - mid - 1 >= 0) 
-                {
-                    window_sum = window_sum - prefix[i - mid - 1];
-                }
-           
-                 sum = (long long)nums[i] *(mid+1) - window_sum;             
-
-                if(sum <= k)
-                {
-                    freq =mid + 1;
-                    if(freq > max_freq)
-                    {
-                        max_freq = freq;
-                    }
-                    low = mid + 1;
-                }
-                else
-                {
-                    high = mid - 1;
-                }
+                c_w_sum = c_w_sum - nums[i];
+                i++;
             }
-            
-
+            if(abs(c_w_sum - m_w_sum) <= k)
+            {
+                len = (j - i) + 1;
+                if(len > ans)
+                {
+                    ans = len;
+                }                  
+            }    
+            j++;      
         }
 
-         return max_freq;      
+        return ans;
+       
+        
     }
 };
