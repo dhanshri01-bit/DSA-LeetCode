@@ -21,14 +21,13 @@ public:
                 c_w_sum = c_w_sum - nums[i];
                 i++;
             }
-            if(abs(c_w_sum - m_w_sum) <= k)
+            
+            len = (j - i) + 1;
+            if(len > ans)
             {
-                len = (j - i) + 1;
-                if(len > ans)
-                {
-                    ans = len;
-                }                  
-            }    
+                ans = len;
+            }                  
+                
             j++;      
         }
 
