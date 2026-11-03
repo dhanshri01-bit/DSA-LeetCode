@@ -14,27 +14,32 @@ public:
                 total_satisfied = total_satisfied + customers[i];
             }
         }
-       
-        for(i = 0; i < n; i++)
+        i = 0;
+        j = 0;
+        non_satisfied = 0;
+        while(j < n)
         {
-            non_satisfied = 0;
-            for(j = i; j < n; j++)
+            if(grumpy[j] == 1)
             {
-                if(j - i + 1 <= minutes)
-                {
-                    if(grumpy[j] == 1)
-                    {
-                        non_satisfied += customers[j];
-                    }
-                }
-                
+                non_satisfied = non_satisfied + customers[j];
             }
-            sum = non_satisfied + total_satisfied;
-                if(sum > satisfied_cus)
+
+            if((j - i + 1) > minutes)
+            {
+                if(grumpy[i] == 1)
                 {
-                    satisfied_cus = sum;
+                    non_satisfied = non_satisfied - customers[i];
                 }
-             
+                i++;
+            }
+                
+            
+            sum = non_satisfied + total_satisfied;
+            if(sum > satisfied_cus)
+            {
+                satisfied_cus = sum;
+            }
+            j++;
         }
         
         return satisfied_cus;
