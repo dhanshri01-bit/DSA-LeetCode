@@ -20,13 +20,12 @@ public:
             non_satisfied = 0;
             for(j = i; j < n; j++)
             {
-                if((j - i + 1) > minutes)
+                if(j - i + 1 <= minutes)
                 {
-                    break;
-                }
-                if(grumpy[j] == 1)
-                {
-                    non_satisfied = non_satisfied + customers[j];
+                    if(grumpy[j] == 1)
+                    {
+                        non_satisfied += customers[j];
+                    }
                 }
                 
             }
